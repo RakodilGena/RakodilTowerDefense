@@ -1,4 +1,4 @@
-﻿namespace RakodilTowerDefense.Config.JsonConfigs.ProjectilesConfig;
+﻿namespace RakodilTowerDefense.Config.JsonConfigs.ExplosionsConfig;
 
 public class BeamShotConfigJson: ExplosionWithSparkConfigJson
 {

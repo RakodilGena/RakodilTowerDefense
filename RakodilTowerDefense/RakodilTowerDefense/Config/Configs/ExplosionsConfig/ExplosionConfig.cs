@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
-using RakodilTowerDefense.Config.JsonConfigs.ProjectilesConfig;
+using RakodilTowerDefense.Config.JsonConfigs.ExplosionsConfig;
 
-namespace RakodilTowerDefense.Config.Configs.ProjectilesConfig;
+namespace RakodilTowerDefense.Config.Configs.ExplosionsConfig;
 
 public class ExplosionConfig : CommonConfig
 {

@@ -11,7 +11,7 @@ public class EnemyConfig: CommonConfig
         MovingSpeed,
         RotationSpeed;
 
-    public readonly int Bounty;
+    public readonly int Bounty, Rank;
 
     public EnemyConfig(
         EnemyConfigJson configJson, 
@@ -22,5 +22,6 @@ public class EnemyConfig: CommonConfig
         MovingSpeed = configJson.MovingSpeed / 1000;
         RotationSpeed = configJson.RotationSpeed / 1000;
         Bounty = configJson.Bounty;
+        Rank = configJson.Rank;
     }
 }

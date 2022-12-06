@@ -4,5 +4,5 @@ public class EnemyConfigJson: CommonConfigJson
 {
     public float Hp, MovingSpeed, RotationSpeed;
 
-    public int Bounty;
+    public int Bounty, Rank;
 }

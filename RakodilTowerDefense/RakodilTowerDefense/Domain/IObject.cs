@@ -18,4 +18,6 @@ public interface IObject
     /// <param name="gameTime"></param>
     /// <param name="spriteBatch"></param>
     public void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+    
+    
 }
