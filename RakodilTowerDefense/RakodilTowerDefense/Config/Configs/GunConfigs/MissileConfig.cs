@@ -6,7 +6,7 @@ namespace RakodilTowerDefense.Config.Configs.GunConfigs;
 
 public class MissileConfig : CommonConfig
 {
-    public readonly float RotationCenterX;
+    public readonly float RotationCenterX, Speed;
 
     public MissileConfig(
         MissileConfigJson configJson,
@@ -14,5 +14,6 @@ public class MissileConfig : CommonConfig
         : base(configJson, textures)
     {
         RotationCenterX = configJson.RotationCenterX;
+        Speed = configJson.Speed;
     }
 }

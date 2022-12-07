@@ -12,12 +12,12 @@ public class AppVersion
     /// </summary>
     public static Version Current => GetInstance()._version;
     
-    private static AppVersion _instance;
+    private static AppVersion? _instance;
     private static AppVersion GetInstance() => _instance ??= new AppVersion();
 
     private AppVersion()
     {
-        _version = new Version(0, 0, 2);
+        _version = new Version(0, 0, 3);
     }
 
     private readonly Version _version;

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using RakodilTowerDefense.Domain.Enemies;
-using RakodilTowerDefense.Domain.Guns;
+using RakodilTowerDefense.Domain.GameClasses.Enemies;
+using RakodilTowerDefense.Domain.GameClasses.Guns;
 
-namespace RakodilTowerDefense.Domain.AimingStrategies;
+namespace RakodilTowerDefense.Domain.GameClasses.AimingStrategies;
 
 /// <summary>
 /// Strategy that aims to target very first enemy.

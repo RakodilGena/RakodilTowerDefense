@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RakodilTowerDefense.Domain.Enemies;
-using RakodilTowerDefense.Domain.Guns;
-using RakodilTowerDefense.Domain.Guns.NonTurret;
-using RakodilTowerDefense.Domain.Guns.Turret;
+using RakodilTowerDefense.Domain.GameClasses.Enemies;
+using RakodilTowerDefense.Domain.GameClasses.Guns;
+using RakodilTowerDefense.Domain.GameClasses.Guns.NonTurret;
+using RakodilTowerDefense.Domain.GameClasses.Guns.Turret;
 
-namespace RakodilTowerDefense.Domain.AimingStrategies;
+namespace RakodilTowerDefense.Domain.GameClasses.AimingStrategies;
 
 /// <summary>
 ///  Strategy that aims to target enemy, which is faster to target.

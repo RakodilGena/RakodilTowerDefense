@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.JsonConfigs.GunConfigs;
-using RakodilTowerDefense.Domain.AimingStrategies;
+using RakodilTowerDefense.Domain.GameClasses.AimingStrategies;
 
 namespace RakodilTowerDefense.Config.Configs.GunConfigs;
 

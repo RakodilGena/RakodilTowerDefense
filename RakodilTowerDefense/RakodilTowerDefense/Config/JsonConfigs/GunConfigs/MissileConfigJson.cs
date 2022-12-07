@@ -2,5 +2,5 @@
 
 public class MissileConfigJson:CommonConfigJson
 {
-    public float RotationCenterX;
+    public float RotationCenterX, Speed;
 }

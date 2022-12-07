@@ -1,10 +1,9 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using RakodilTowerDefense.Domain.Enemies;
-using RakodilTowerDefense.Domain.Guns;
+using RakodilTowerDefense.Domain.GameClasses.Enemies;
+using RakodilTowerDefense.Domain.GameClasses.Guns;
 
-namespace RakodilTowerDefense.Domain.AimingStrategies;
+namespace RakodilTowerDefense.Domain.GameClasses.AimingStrategies;
 
 public abstract class AimingStrategy
 {

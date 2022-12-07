@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace RakodilTowerDefense.Domain;
+namespace RakodilTowerDefense.Domain.CommonInterfaces;
 
-public interface IObject
+public interface IDrawUpdate
 {
     /// <summary>
     /// Updates game object.

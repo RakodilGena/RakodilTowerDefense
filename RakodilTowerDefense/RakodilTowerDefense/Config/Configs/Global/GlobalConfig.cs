@@ -11,7 +11,7 @@ public sealed class GlobalConfig
     
     
 
-    private static GlobalConfig _instance;
+    private static GlobalConfig? _instance;
 
     /// <summary>
     /// Scale that applies to non-game - components (controls backgrounds etc).

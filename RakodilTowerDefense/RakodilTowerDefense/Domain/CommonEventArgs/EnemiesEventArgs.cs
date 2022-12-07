@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using RakodilTowerDefense.Domain.Enemies;
+using RakodilTowerDefense.Domain.GameClasses.Enemies;
 
 namespace RakodilTowerDefense.Domain.CommonEventArgs;
 
