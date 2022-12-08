@@ -19,7 +19,7 @@ public abstract class GameObject: CommonObject
     /// Returns actual position on visible game field.
     /// </summary>
     /// <returns></returns>
-    protected Vector2 GetGamePosition()
+    public Vector2 GetGamePosition()
     {
         var normalPosition = Position * GlobalConfig.GameFieldScale;
         normalPosition.X += GlobalConfig.GamePadding;

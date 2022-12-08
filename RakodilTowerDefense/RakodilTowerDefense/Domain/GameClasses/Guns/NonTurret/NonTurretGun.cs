@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using RakodilTowerDefense.Config.Configs;
 
 namespace RakodilTowerDefense.Domain.GameClasses.Guns.NonTurret;
@@ -10,6 +11,7 @@ public abstract class NonTurretGun: Gun
 
     protected NonTurretGun(Vector2 position, string configName) : base(position, configName)
     {
+        
     }
 
 

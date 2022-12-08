@@ -33,11 +33,17 @@ public class BeamShot: ExplosionWithSpark
         
         BeamShotConfig cfg = Config;
         Texture2D beamTexture = cfg.BeamTexture;
-        int currentFrame = GetCurrentFrameNumber(cfg.BeamFrames);
-        Rectangle currentSourceRectangle = GetCurrentFrameRectangle(currentFrame, cfg.BeamFrames, beamTexture);
+        
+        int currentFrame = GetCurrentFrameNumber(totalFrames: cfg.BeamFrames);
+        
+        Rectangle currentSourceRectangle = 
+            GetCurrentFrameRectangle(currentFrame, 
+                totalFrames: cfg.BeamFrames, 
+                texture: beamTexture);
 
         //calculating beam width scale
         var widthBeamScale = (Position - SparkPosition).Length() / currentSourceRectangle.Width;
+        
         //create scale vector considering texture and game field scales.
         var beamScale = new Vector2(widthBeamScale, 1) * cfg.BeamTextureScale * GlobalConfig.GameFieldScale;
         

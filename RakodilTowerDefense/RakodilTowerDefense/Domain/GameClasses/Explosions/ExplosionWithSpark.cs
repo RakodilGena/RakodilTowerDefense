@@ -44,8 +44,11 @@ public class ExplosionWithSpark: StaticExplosion
         
         ExplosionWithSparkConfig cfg = Config;
         Texture2D sparkTexture = cfg.SparkTexture;
-        int currentFrame = GetCurrentFrameNumber(cfg.SparkFrames);
-        Rectangle currentSourceRectangle = GetCurrentFrameRectangle(currentFrame, cfg.SparkFrames, sparkTexture);
+        int currentFrame = GetCurrentFrameNumber(totalFrames: cfg.SparkFrames);
+        Rectangle currentSourceRectangle = 
+            GetCurrentFrameRectangle(currentFrame, 
+                totalFrames: cfg.SparkFrames, 
+                texture: sparkTexture);
         
         spriteBatch.Draw(
             texture: sparkTexture,
