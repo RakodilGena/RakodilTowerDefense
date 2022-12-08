@@ -14,13 +14,14 @@ public class TeslaLightning : StaticExplosion
 
     private readonly IReadOnlyList<Lightning> _lightnings;
 
-    private int _currentFrame;
+    private int _currentSparkFrame,
+        _currentLightningFrame;
 
     #endregion
 
     #region Properties
 
-    private new BeamShotConfig Config => (BeamShotConfig)base.Config;
+    private new TeslaLightningConfig Config => (TeslaLightningConfig)base.Config;
 
     #endregion
 
@@ -34,10 +35,13 @@ public class TeslaLightning : StaticExplosion
         var count = targets.Count;
         var lightnings = new List<Lightning>(count);
 
-        _currentFrame = 0;
+        _currentSparkFrame = 0;
+        _currentLightningFrame = 0;
+        
         var sparkRectangle = GetSparkRectangle();
 
         var random = new Random();
+        var config = Config;
 
         GameObject source = this;
         for (int i = 0; i < count; i++)
@@ -47,7 +51,7 @@ public class TeslaLightning : StaticExplosion
                 new Lightning(
                     source,
                     receiver,
-                    Config,
+                    config,
                     sparkRectangle,
                     random));
 
@@ -78,7 +82,7 @@ public class TeslaLightning : StaticExplosion
     {
         var totalFrames = Config.SparkFrames;
 
-        return GetCurrentFrameRectangle(_currentFrame,
+        return GetCurrentFrameRectangle(_currentSparkFrame,
             totalFrames: totalFrames,
             texture: Config.SparkTexture);
     }
@@ -88,26 +92,55 @@ public class TeslaLightning : StaticExplosion
         //this updates total draw time.
         base.Update(gameTime);
 
-        //gets spark frame number based on draw time.
-        var currentFrameNumber = GetCurrentFrameNumber(Config.SparkFrames);
+        UpdateSparkFrame();
+        UpdateBeamFrame();
+    }
 
-        if (currentFrameNumber == _currentFrame)
+
+    /// <summary>
+    /// This decides if its time to change current spark frame of each lightning.
+    /// </summary>
+    private void UpdateSparkFrame()
+    {
+        //gets spark frame number based on draw time.
+        var currentSparkFrameNumber = GetCurrentFrameNumber(Config.SparkFrames);
+
+        if (currentSparkFrameNumber == _currentSparkFrame)
             return;
 
-        //if number changed - we have to tell all the single lightnings that it has to draw other peace of its texture.
-        _currentFrame = currentFrameNumber;
+        //if number changed - we have to tell all the single lightnings that it has to draw other peace of its spark texture.
+        _currentSparkFrame = currentSparkFrameNumber;
 
         //getting spark rectangle for all the lightning sparks.
         var sparkRect = GetSparkRectangle();
-        var random = new Random();
 
         var count = _lightnings.Count;
         for (int i = 0; i < count; i++)
-        {
             _lightnings[i].SetSparkFrame(sparkRect);
-            _lightnings[i].SetNewBeamFrame(random);
-        }
+        
     }
+
+    /// <summary>
+    /// This decides if its time to change current beam frame of each lightning.
+    /// </summary>
+    private void UpdateBeamFrame()
+    {
+        //gets lightning frame number based on draw time.
+        var currentLightningFrameNumber = GetCurrentFrameNumber(Config.LightningFrames);
+
+        if (currentLightningFrameNumber == _currentLightningFrame)
+            return;
+
+        //if number changed - we have to tell all the single lightnings that it has to draw other peace of its beam texture.
+        _currentLightningFrame = currentLightningFrameNumber;
+
+        var random = new Random();
+        
+        var count = _lightnings.Count;
+        for (int i = 0; i < count; i++)
+            _lightnings[i].SetNewBeamFrame(random);
+    }
+    
 
     #endregion
 
@@ -121,7 +154,7 @@ public class TeslaLightning : StaticExplosion
         private readonly GameObject _source;
         private readonly GameObject _receiver;
 
-        private readonly BeamShotConfig _config;
+        private readonly TeslaLightningConfig _config;
 
         private Rectangle
             _beamRectangle,
@@ -133,7 +166,7 @@ public class TeslaLightning : StaticExplosion
         internal Lightning(
             GameObject source,
             GameObject receiver,
-            BeamShotConfig config,
+            TeslaLightningConfig config,
             Rectangle sparkFrame,
             Random random)
         {

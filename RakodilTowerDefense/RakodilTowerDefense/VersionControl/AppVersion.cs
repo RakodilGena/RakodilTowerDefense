@@ -17,7 +17,7 @@ public class AppVersion
 
     private AppVersion()
     {
-        _version = new Version(0, 0, 4);
+        _version = new Version(0, 0, 5);
     }
 
     private readonly Version _version;

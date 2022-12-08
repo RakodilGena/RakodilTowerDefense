@@ -105,8 +105,7 @@ public abstract class Gun: GameObject, ITargeting, IRemovable
         var args = new EnemiesEventArgs();
         AskedForEnemies?.Invoke(this, args);
 
-        if (args.Enemies == null)
-            throw new NullReferenceException("Enemies were null for asking gun");
+        Debug.Assert(args.Enemies != null);
 
         CurrentTarget = Config.AimingStrategy.GetTarget(this, args.Enemies);
         return CurrentTarget != null;

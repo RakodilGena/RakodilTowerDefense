@@ -18,6 +18,6 @@ public class TeslaConfig : GunConfig
     {
         IdleSparkTexture = textures[configJson.IdleSparkTexture];
         IdleSparkTextureScale = configJson.IdleSparkTextureWidth / IdleSparkTexture.Width;
-        IdleSparkRedrawTime = configJson.IdleSparkRedrawTime / 1000;
+        IdleSparkRedrawTime = configJson.IdleSparkRedrawTime;
     }
 }
