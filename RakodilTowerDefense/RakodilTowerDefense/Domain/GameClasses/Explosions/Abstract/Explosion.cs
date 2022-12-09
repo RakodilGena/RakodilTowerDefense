@@ -3,9 +3,10 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.Configs.ExplosionsConfig;
+using RakodilTowerDefense.Config.Configs.Global;
 using RakodilTowerDefense.Domain.CommonInterfaces;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Explosions;
+namespace RakodilTowerDefense.Domain.GameClasses.Explosions.Abstract;
 
 public abstract class Explosion : GameObject, IRemovable
 {
@@ -33,6 +34,31 @@ public abstract class Explosion : GameObject, IRemovable
         : base(position, configName)
     {
         _currentDrawTime = 0;
+    }
+    
+    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    {
+        //this method draws explosion at current frame
+
+        ExplosionConfig cfg = Config;
+        Texture2D texture = cfg.Texture;
+        
+        int currentFrame = GetCurrentFrameNumber(totalFrames: cfg.ExplosionFrames);
+        Rectangle currentSourceRectangle =
+            GetCurrentFrameRectangle(currentFrame, 
+                totalFrames: cfg.ExplosionFrames, 
+                texture);
+
+        spriteBatch.Draw(
+            texture: texture,
+            position: GetGamePosition(),
+            sourceRectangle: currentSourceRectangle,
+            color: Color.White,
+            rotation: 0f,
+            origin: new Vector2(currentSourceRectangle.Width / 2f, texture.Height / 2f),
+            scale: new Vector2(cfg.TextureScale) * GlobalConfig.GameFieldScale,
+            effects: SpriteEffects.None,
+            layerDepth: DrawLayers.Explosion + DrawLayers.Increment); //explosion higher than beam
     }
 
     

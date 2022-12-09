@@ -1,8 +1,6 @@
-﻿using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using RakodilTowerDefense.Config.Configs;
+﻿using Microsoft.Xna.Framework;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Guns.NonTurret;
+namespace RakodilTowerDefense.Domain.GameClasses.Guns.Abstract;
 
 public abstract class NonTurretGun: Gun
 {

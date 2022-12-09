@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.Configs.ExplosionsConfig;
 using RakodilTowerDefense.Config.Configs.Global;
+using RakodilTowerDefense.Extensions;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Explosions;
+namespace RakodilTowerDefense.Domain.GameClasses.Explosions.Abstract;
 
-public class BeamShot: ExplosionWithSpark
+public abstract class BeamShot: ExplosionWithSpark
 {
     #region Properties
 
@@ -42,7 +43,7 @@ public class BeamShot: ExplosionWithSpark
                 texture: beamTexture);
 
         //calculating beam width scale
-        var widthBeamScale = (Position - SparkPosition).Length() / currentSourceRectangle.Width;
+        var widthBeamScale = Position.DistanceTo(SparkPosition) / currentSourceRectangle.Width;
         
         //create scale vector considering texture and game field scales.
         var beamScale = new Vector2(widthBeamScale, 1) * cfg.BeamTextureScale * GlobalConfig.GameFieldScale;

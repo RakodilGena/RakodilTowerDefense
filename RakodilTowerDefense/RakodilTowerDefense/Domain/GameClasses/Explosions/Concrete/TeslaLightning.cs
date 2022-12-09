@@ -5,10 +5,11 @@ using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.Configs.ExplosionsConfig;
 using RakodilTowerDefense.Config.Configs.Global;
 using RakodilTowerDefense.Domain.GameClasses.Enemies;
+using RakodilTowerDefense.Domain.GameClasses.Explosions.Abstract;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Explosions;
+namespace RakodilTowerDefense.Domain.GameClasses.Explosions.Concrete;
 
-public class TeslaLightning : StaticExplosion
+public class TeslaLightning : Explosion
 {
     #region Fields
 
@@ -27,17 +28,21 @@ public class TeslaLightning : StaticExplosion
 
     #region Methods
 
-    public TeslaLightning(Vector2 towerPosition, string configName, IReadOnlyList<Enemy> targets) : base(towerPosition,
-        configName)
+    public TeslaLightning(Vector2 towerPosition, IReadOnlyList<Enemy> targetsArray)
+        : base(
+            towerPosition,
+            configName: ConfigNames.Explosions.Tesla)
     {
         //creating a lightning for each target.
         //first lightning starts from tesla tower, others - from prev enemy to next one.
-        var count = targets.Count;
+        //var targetsArray = targets.ToArray();
+        
+        var count = targetsArray.Count;
         var lightnings = new List<Lightning>(count);
 
         _currentSparkFrame = 0;
         _currentLightningFrame = 0;
-        
+
         var sparkRectangle = GetSparkRectangle();
 
         var random = new Random();
@@ -46,7 +51,7 @@ public class TeslaLightning : StaticExplosion
         GameObject source = this;
         for (int i = 0; i < count; i++)
         {
-            var receiver = targets[i];
+            var receiver = targetsArray[i];
             lightnings.Add(
                 new Lightning(
                     source,
@@ -203,14 +208,14 @@ public class TeslaLightning : StaticExplosion
                     texture: _config.BeamTexture);
 
             //this will decide to flip beam (1) or not(0).
-            _beamEffect = (SpriteEffects)random.Next(0, 2);
+            //_beamEffect = (SpriteEffects)random.Next(0, 2);
 
-            // var beamFlip = random.Next(0, 2);
-            // _beamEffect = beamFlip switch
-            // {
-            //     0 => SpriteEffects.None,
-            //     _ => SpriteEffects.FlipHorizontally
-            // }
+            var beamFlip = random.Next(0, 2);
+            _beamEffect = beamFlip switch
+            {
+                0 => SpriteEffects.None,
+                _ => SpriteEffects.FlipHorizontally
+            };
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RakodilTowerDefense.Domain.GameClasses.Enemies;
-using RakodilTowerDefense.Domain.GameClasses.Guns;
+using RakodilTowerDefense.Domain.GameClasses.Guns.Abstract;
 
 namespace RakodilTowerDefense.Domain.GameClasses.AimingStrategies;
 

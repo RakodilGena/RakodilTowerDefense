@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using RakodilTowerDefense.Config.Configs;
 using RakodilTowerDefense.Config.Configs.EnemyConfigs;
 
 namespace RakodilTowerDefense.Domain.GameClasses.Enemies;

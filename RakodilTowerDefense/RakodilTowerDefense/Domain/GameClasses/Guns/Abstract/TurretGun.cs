@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using RakodilTowerDefense.Config.Configs;
 using RakodilTowerDefense.Config.Configs.Global;
 using RakodilTowerDefense.Config.Configs.GunConfigs;
 using RakodilTowerDefense.Domain.GameClasses.Enemies;
+using RakodilTowerDefense.Extensions;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Guns.Turret;
+namespace RakodilTowerDefense.Domain.GameClasses.Guns.Abstract;
 
 public abstract class TurretGun : Gun
 {
@@ -73,6 +73,21 @@ public abstract class TurretGun : Gun
     }
 
     /// <summary>
+    /// Returns position of barrel end for creating shoot spark mostly.
+    /// </summary>
+    /// <returns></returns>
+    protected Vector2 GetBarrelEnd()
+    {
+        var barrelLength = Config.BarrelLength;
+        
+        if (barrelLength <= 0)
+            return Position;
+
+        var barrelEnd = Position.MovedInDirection(TurretRotation, barrelLength);
+        return barrelEnd;
+    }
+
+    /// <summary>
     /// Returns piece of texture to draw as turret.
     /// </summary>
     /// <param name="turretTexture"></param>
@@ -119,7 +134,13 @@ public abstract class TurretGun : Gun
         return (float)finalDiff;
     }
 
-    private bool Rotate(GameTime gameTime, float diffAngle)
+    /// <summary>
+    /// Rotates turret to specified angle at speed of turret rotation. 
+    /// </summary>
+    /// <param name="gameTime"></param>
+    /// <param name="diffAngle"></param>
+    /// <returns></returns>
+    private bool RotateTurret(GameTime gameTime, float diffAngle)
     {
         if (diffAngle == 0)
             return true;
@@ -128,7 +149,7 @@ public abstract class TurretGun : Gun
         float rotationOnThisStep = Config.RotationSpeed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
         //if we can reach expected angle at this step we do it and say rotation is done.
-        if (Math.Abs(diffAngle) > rotationOnThisStep)
+        if (Math.Abs(diffAngle) < rotationOnThisStep)
         {
             TurretRotation += diffAngle;
             return true;
@@ -158,7 +179,7 @@ public abstract class TurretGun : Gun
         if (!hasTarget)
         {
             var diffToDefault = GetRotationToNewAngle(_defaultRotation);
-            Rotate(gameTime, diffToDefault);
+            RotateTurret(gameTime, diffToDefault);
             return;
         }
 
@@ -167,7 +188,7 @@ public abstract class TurretGun : Gun
 
         //if gun has target and can fire right now - gun tries to aim enemy.
         var diffToEnemy = GetRotationToTarget(CurrentTarget!);
-        var aimed = Rotate(gameTime, diffToEnemy);
+        var aimed = RotateTurret(gameTime, diffToEnemy);
 
         //gun can shoot only if it successfully aimed and WAS reloaded BEFORE this step.  
         if (aimed && loadedRightNow)

@@ -2,11 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.Configs.Global;
-using RakodilTowerDefense.Config.Configs.GunConfigs;
 using RakodilTowerDefense.Config.Configs.ProjectileConfigs;
 using RakodilTowerDefense.Domain.CommonInterfaces;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Projectiles;
+namespace RakodilTowerDefense.Domain.GameClasses.Projectiles.Abstract;
 
 /// <summary>
 /// Abstract projectile.

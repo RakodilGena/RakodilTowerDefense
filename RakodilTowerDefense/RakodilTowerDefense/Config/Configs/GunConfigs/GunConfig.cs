@@ -19,7 +19,7 @@ public class GunConfig: CommonConfig
         : base(configJson, textures)
     {
         Damage = configJson.Damage;
-        ReloadTime = configJson.ReloadTime;
+        ReloadTime = configJson.ReloadTime * 1000;
         Range = configJson.Range;
         Cost = configJson.Cost;
         

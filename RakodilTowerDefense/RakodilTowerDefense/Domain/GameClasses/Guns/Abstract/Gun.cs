@@ -1,17 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using RakodilTowerDefense.Config.Configs;
 using RakodilTowerDefense.Config.Configs.Global;
 using RakodilTowerDefense.Config.Configs.GunConfigs;
 using RakodilTowerDefense.Domain.CommonEventArgs;
 using RakodilTowerDefense.Domain.CommonInterfaces;
 using RakodilTowerDefense.Domain.GameClasses.Enemies;
 using RakodilTowerDefense.Domain.GameClasses.Interfaces;
+using RakodilTowerDefense.Extensions;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Guns;
+namespace RakodilTowerDefense.Domain.GameClasses.Guns.Abstract;
 
 public abstract class Gun: GameObject, ITargeting, IRemovable
 {
@@ -81,8 +81,7 @@ public abstract class Gun: GameObject, ITargeting, IRemovable
     /// <returns></returns>
     public bool EnemyInRange(Enemy enemy)
     {
-        var rangeBetween = (Position - enemy.Position).Length();
-        return Config.Range >= rangeBetween;
+        return Config.Range >= Position.DistanceTo(enemy.Position);
     }
     
 
@@ -102,13 +101,24 @@ public abstract class Gun: GameObject, ITargeting, IRemovable
     /// </summary>
     private bool GetNewTarget()
     {
+        var enemies = GetAliveEnemies();
+
+        CurrentTarget = Config.AimingStrategy.GetTarget(this, enemies);
+        return CurrentTarget != null;
+    }
+
+    /// <summary>
+    /// Returns collection of alive enemies.
+    /// </summary>
+    /// <returns></returns>
+    protected IEnumerable<Enemy> GetAliveEnemies()
+    {
         var args = new EnemiesEventArgs();
         AskedForEnemies?.Invoke(this, args);
 
         Debug.Assert(args.Enemies != null);
 
-        CurrentTarget = Config.AimingStrategy.GetTarget(this, args.Enemies);
-        return CurrentTarget != null;
+        return args.Enemies;
     }
 
     /// <summary>
@@ -169,6 +179,7 @@ public abstract class Gun: GameObject, ITargeting, IRemovable
     /// </summary>
     protected void Remove()
     {
+        //todo dont forget to use.
         Removed?.Invoke(this, EventArgs.Empty);
     }
 

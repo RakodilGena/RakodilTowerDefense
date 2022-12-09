@@ -1,5 +1,5 @@
 ﻿using System;
-using RakodilTowerDefense.Domain.GameClasses.Explosions;
+using RakodilTowerDefense.Domain.GameClasses.Explosions.Abstract;
 
 namespace RakodilTowerDefense.Domain.GameClasses.Interfaces;
 

@@ -18,6 +18,6 @@ public class GatlingConfig: GunTurretConfig
         :base(configJson, textures, strategies)
     {
         AmmoCapacity = configJson.AmmoCapacity;
-        SingleBulletReloadTime = configJson.SingleBulletReloadTime;
+        SingleBulletReloadTime = configJson.SingleBulletReloadTime * 1000;
     }
 }

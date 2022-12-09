@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using RakodilTowerDefense.Config.Configs;
 using RakodilTowerDefense.Config.Configs.Global;
-using RakodilTowerDefense.Domain.CommonInterfaces;
 
 namespace RakodilTowerDefense.Domain.GameClasses;
 

@@ -9,7 +9,14 @@ public class TeslaConfig : GunConfig
 {
     public readonly Texture2D IdleSparkTexture;
 
-    public readonly float IdleSparkTextureScale, IdleSparkRedrawTime;
+    public readonly float
+        IdleSparkTextureScale,
+        IdleSparkDrawTime,
+        IdleSparkReloadTime,
+        LightningJumpRange;
+
+    public readonly int MaximumTargets;
+        
 
     public TeslaConfig(TeslaConfigJson configJson,
         IDictionary<string, Texture2D> textures,
@@ -18,6 +25,9 @@ public class TeslaConfig : GunConfig
     {
         IdleSparkTexture = textures[configJson.IdleSparkTexture];
         IdleSparkTextureScale = configJson.IdleSparkTextureWidth / IdleSparkTexture.Width;
-        IdleSparkRedrawTime = configJson.IdleSparkRedrawTime;
+        IdleSparkDrawTime = configJson.IdleSparkDrawTime * 1000;
+        IdleSparkReloadTime = configJson.IdleSparkReloadTime * 1000;
+        MaximumTargets = configJson.MaximumTargets;
+        LightningJumpRange = configJson.LightningJumpRange;
     }
 }

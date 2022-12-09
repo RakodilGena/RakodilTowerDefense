@@ -15,7 +15,7 @@ public class ExplosionConfig : CommonConfig
         IDictionary<string, Texture2D> textures)
         : base(configJson, textures)
     {
-        DrawTime = configJson.DrawTime;
+        DrawTime = configJson.DrawTime * 1000;
         ExplosionFrames = configJson.ExplosionFrames;
     }
 }

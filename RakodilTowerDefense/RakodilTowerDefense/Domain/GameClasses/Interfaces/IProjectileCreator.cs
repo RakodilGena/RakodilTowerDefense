@@ -1,5 +1,5 @@
 ﻿using System;
-using RakodilTowerDefense.Domain.GameClasses.Projectiles;
+using RakodilTowerDefense.Domain.GameClasses.Projectiles.Abstract;
 
 namespace RakodilTowerDefense.Domain.GameClasses.Interfaces;
 

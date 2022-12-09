@@ -8,8 +8,12 @@ namespace RakodilTowerDefense.Config.Configs.GunConfigs;
 public class GunTurretConfig: GunConfig
 {
     public readonly Texture2D TurretTexture;
-
-    public readonly float TurretTextureScale, RotationSpeed, RotationCenterX;
+   
+    public readonly float 
+        TurretTextureScale, 
+        RotationSpeed, 
+        RotationCenterX, 
+        BarrelLength;
 
     public GunTurretConfig(
         GunTurretConfigJson configJson,
@@ -21,5 +25,6 @@ public class GunTurretConfig: GunConfig
         TurretTextureScale = configJson.TurretTextureWidth / TurretTexture.Width;
         RotationSpeed = configJson.RotationSpeed / 1000;
         RotationCenterX = configJson.RotationCenterX;
+        BarrelLength = configJson.BarrelLength;
     }
 }

@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.Configs.ExplosionsConfig;
 using RakodilTowerDefense.Config.Configs.Global;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Explosions;
+namespace RakodilTowerDefense.Domain.GameClasses.Explosions.Abstract;
 
-public class ExplosionWithSpark: StaticExplosion
+public abstract class ExplosionWithSpark: Explosion
 {
     #region Fields
 

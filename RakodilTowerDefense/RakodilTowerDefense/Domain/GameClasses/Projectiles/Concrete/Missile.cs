@@ -6,10 +6,12 @@ using RakodilTowerDefense.Config.Configs.Global;
 using RakodilTowerDefense.Config.Configs.ProjectileConfigs;
 using RakodilTowerDefense.Domain.CommonEventArgs;
 using RakodilTowerDefense.Domain.GameClasses.Enemies;
-using RakodilTowerDefense.Domain.GameClasses.Explosions;
+using RakodilTowerDefense.Domain.GameClasses.Explosions.Abstract;
+using RakodilTowerDefense.Domain.GameClasses.Explosions.Concrete;
 using RakodilTowerDefense.Domain.GameClasses.Interfaces;
+using RakodilTowerDefense.Domain.GameClasses.Projectiles.Abstract;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Projectiles;
+namespace RakodilTowerDefense.Domain.GameClasses.Projectiles.Concrete;
 
 public class Missile: Seeker, IExplosionCreator, ITargeting
 {
@@ -52,6 +54,7 @@ public class Missile: Seeker, IExplosionCreator, ITargeting
         return Config.ExplosionRange >= rangeBetween;
     }
     
+    
     protected override void OnTargetReached(object? sender, EventArgs e)
     {
         //getting alive targets.
@@ -67,9 +70,7 @@ public class Missile: Seeker, IExplosionCreator, ITargeting
             enemy.ReceiveDamage(damage);
         
         //create explosion at enemy position for displaying.
-        var explosion = new StaticExplosion(
-            position: Target.Position,
-            configName: ConfigNames.Explosions.Missile);
+        var explosion = new MissileExplosion(Target.Position);
         
         ExplosionCreated?.Invoke(this, explosion);
     }

@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework;
 using RakodilTowerDefense.Config.Configs.ProjectileConfigs;
 using RakodilTowerDefense.Domain.GameClasses.Enemies;
+using RakodilTowerDefense.Extensions;
 
-namespace RakodilTowerDefense.Domain.GameClasses.Projectiles;
+namespace RakodilTowerDefense.Domain.GameClasses.Projectiles.Abstract;
 
 /// <summary>
 /// Abstract projectile that follows its target.
@@ -42,7 +43,13 @@ public abstract class Seeker: Projectile
         TargetReached += OnTargetReached;
     }
 
+    /// <summary>
+    /// Actions to perform after target is reached. 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected abstract void OnTargetReached(object? sender, EventArgs e);
+    
 
     public override void Update(GameTime gameTime)
     {
@@ -72,9 +79,10 @@ public abstract class Seeker: Projectile
         //if cant reach enemy yet -> change rotation and position.
         Rotation = (float)Math.Atan2(distance.Y, distance.X);
 
-        Position += new Vector2(
-            x: (float)Math.Cos(Rotation) * distanceAddition,
-            y: (float)Math.Sin(Rotation) * distanceAddition);
+        Position = Position.MovedInDirection(Rotation, distanceAddition);
+            // new Vector2(
+            // x: (float)Math.Cos(Rotation) * distanceAddition,
+            // y: (float)Math.Sin(Rotation) * distanceAddition);
     }
 
     #endregion
