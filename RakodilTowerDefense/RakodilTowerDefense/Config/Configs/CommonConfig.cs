@@ -9,7 +9,7 @@ namespace RakodilTowerDefense.Config.Configs;
 /// </summary>
 public class CommonConfig
 {
-    public readonly float TextureScale;
+    public float TextureScale { get; protected set; }
     
     public readonly Texture2D Texture;
 
@@ -19,3 +19,4 @@ public class CommonConfig
         TextureScale = configJson.TextureWidth / Texture.Width;
     } 
 }
+

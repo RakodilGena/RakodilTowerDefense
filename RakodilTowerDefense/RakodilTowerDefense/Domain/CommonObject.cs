@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using RakodilTowerDefense.Config;
 using RakodilTowerDefense.Config.Configs;
 using RakodilTowerDefense.Domain.CommonInterfaces;
 
@@ -30,8 +31,7 @@ public abstract class CommonObject: IDrawUpdate
     protected CommonObject(Vector2 position, string configName)
     {
         Position = position;
-        //Config = cfg;
-        //todo add config fetch
+        Config = ConfigFactory.GetConfig(configName);
     }
 
     public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);

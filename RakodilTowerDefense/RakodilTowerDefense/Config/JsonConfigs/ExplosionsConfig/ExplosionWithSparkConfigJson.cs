@@ -8,3 +8,18 @@ public class ExplosionWithSparkConfigJson: ExplosionConfigJson
 
     public int SparkFrames;
 }
+
+
+/*
+{
+    "Texture": "",
+    "TextureWidth": 0,
+    "DrawTime": 0,
+    "ExplosionFrames": 0,
+    
+    "SparkTexture": "",
+    "SparkTextureWidth": 0,
+    "SparkRotationCenterX": 0,
+    "SparkFrames": 0
+}
+ */

@@ -6,3 +6,12 @@ public class CommonConfigJson
 
     public float TextureWidth;
 }
+
+/*
+{
+    "Texture": "",
+    "TextureWidth": 0
+}
+
+
+ */

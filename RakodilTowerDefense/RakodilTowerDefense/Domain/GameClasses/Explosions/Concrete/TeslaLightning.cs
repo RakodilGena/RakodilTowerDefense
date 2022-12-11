@@ -31,6 +31,7 @@ public class TeslaLightning : Explosion
     public TeslaLightning(Vector2 towerPosition, IReadOnlyList<Enemy> targetsArray)
         : base(
             towerPosition,
+            rotation: 0,
             configName: ConfigNames.Explosions.Tesla)
     {
         //creating a lightning for each target.

@@ -8,7 +8,7 @@ using RakodilTowerDefense.Domain.GameClasses.Interfaces;
 
 namespace RakodilTowerDefense.Domain.GameClasses.Guns.Concrete;
 
-public class LaserGun : TurretGun, IExplosionCreator
+public class LaserGun : TurretLoadableGun, IExplosionCreator
 {
     #region Properties
 

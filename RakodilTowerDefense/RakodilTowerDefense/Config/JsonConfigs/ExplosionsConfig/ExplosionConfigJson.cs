@@ -6,3 +6,13 @@ public class ExplosionConfigJson : CommonConfigJson
 
     public int ExplosionFrames;
 }
+
+
+/*
+{
+    "Texture": "",
+    "TextureWidth": 0,
+    "DrawTime": 0,
+    "ExplosionFrames": 0
+}
+ */

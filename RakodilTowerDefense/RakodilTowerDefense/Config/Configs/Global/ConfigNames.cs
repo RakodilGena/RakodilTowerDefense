@@ -6,15 +6,13 @@ public static class ConfigNames
     {
         private const string PREFIX = "Explosion";
 
-        public const string Missile = PREFIX + "Missile";
-
-        public const string Cannon = PREFIX + "Cannon";
-
-        public const string Laser = PREFIX + "Laser";
-
-        public const string Gatling = PREFIX + "Gatling";
-
-        public const string Tesla = PREFIX + "Tesla";
+        public const string 
+            Missile = PREFIX + "Missile",
+            Cannon = PREFIX + "Cannon", 
+            Laser = PREFIX + "Laser", 
+            Gatling = PREFIX + "Gatling",
+            Tesla = PREFIX + "Tesla",
+            Enemy = PREFIX + "Enemy";
     }
 
     public static class Projectiles
@@ -28,15 +26,23 @@ public static class ConfigNames
     {
         private const string PREFIX = "Gun";
 
-        public const string Gatling = PREFIX + "Gatling";
+        public const string 
+            Gatling = PREFIX + "Gatling",
+            Cannon = PREFIX + "Cannon",
+            Laser = PREFIX + "Laser",
+            Tesla = PREFIX + "Tesla",
+            Missile = PREFIX + "Missile";
+    }
 
-        public const string Cannon = PREFIX + "Cannon";
+    public static class Enemies
+    {
+        private const string PREFIX = "Enemy";
 
-        public const string Laser = PREFIX + "Laser";
-
-        public const string Tesla = PREFIX + "Tesla";
-
-        public const string Missile = PREFIX + "Missile";
+        public const string 
+            Standard = PREFIX + "Standard",
+            Fast = PREFIX + "Fast",
+            Durable = PREFIX + "Durable",
+            Boss = PREFIX + "Boss";
     }
 
 

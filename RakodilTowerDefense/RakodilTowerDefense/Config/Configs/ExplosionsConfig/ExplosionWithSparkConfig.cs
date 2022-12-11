@@ -8,7 +8,8 @@ public class ExplosionWithSparkConfig : ExplosionConfig
 {
     public readonly Texture2D SparkTexture;
 
-    public readonly float SparkTextureScale, SparkRotationCenterX;
+    public readonly float SparkTextureScale;
+    public readonly float SparkRotationCenterX;
 
     public readonly int SparkFrames;
 
@@ -18,8 +19,8 @@ public class ExplosionWithSparkConfig : ExplosionConfig
         : base(configJson, textures)
     {
         SparkTexture = textures[configJson.SparkTexture];
-        SparkTextureScale = configJson.SparkTextureWidth / SparkTexture.Width;
-        SparkRotationCenterX = configJson.SparkRotationCenterX;
         SparkFrames = configJson.SparkFrames;
+        SparkTextureScale = configJson.SparkTextureWidth / SparkTexture.Width * SparkFrames;
+        SparkRotationCenterX = configJson.SparkRotationCenterX;
     }
 }

@@ -58,7 +58,7 @@ public abstract class Seeker: Projectile
         var config = Config;
 
         //get distance vector and rotation out of it.
-        var distance = Position - Target.Position;
+        var distance = Target.Position - Position;
 
         
         //get distance addition on this step.

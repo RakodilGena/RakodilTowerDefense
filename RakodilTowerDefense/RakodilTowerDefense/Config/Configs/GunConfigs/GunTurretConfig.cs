@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.JsonConfigs.GunConfigs;
 using RakodilTowerDefense.Domain.GameClasses.AimingStrategies;
@@ -23,7 +24,9 @@ public class GunTurretConfig: GunConfig
     {
         TurretTexture = textures[configJson.TurretTexture];
         TurretTextureScale = configJson.TurretTextureWidth / TurretTexture.Width;
-        RotationSpeed = configJson.RotationSpeed / 1000;
+        
+        RotationSpeed = MathHelper.ToRadians(configJson.RotationSpeed / 1000);
+        
         RotationCenterX = configJson.RotationCenterX;
         BarrelLength = configJson.BarrelLength;
     }

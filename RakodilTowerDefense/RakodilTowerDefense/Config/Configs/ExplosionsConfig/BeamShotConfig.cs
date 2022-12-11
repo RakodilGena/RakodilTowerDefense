@@ -6,11 +6,11 @@ namespace RakodilTowerDefense.Config.Configs.ExplosionsConfig;
 
 public class BeamShotConfig: ExplosionWithSparkConfig
 {
-    public Texture2D BeamTexture;
+    public readonly Texture2D BeamTexture;
 
-    public float BeamTextureScale;
+    public readonly float BeamTextureScale;
     
-    public int BeamFrames;
+    public readonly int BeamFrames;
 
     public BeamShotConfig(
         BeamShotConfigJson configJson, 
@@ -18,7 +18,7 @@ public class BeamShotConfig: ExplosionWithSparkConfig
         : base(configJson, textures)
     {
         BeamTexture = textures[configJson.BeamTexture];
-        BeamTextureScale = configJson.BeamTextureWidth / BeamTexture.Width;
         BeamFrames = configJson.BeamFrames;
+        BeamTextureScale = configJson.BeamTextureWidth  / BeamTexture.Width * BeamFrames;
     }
 }

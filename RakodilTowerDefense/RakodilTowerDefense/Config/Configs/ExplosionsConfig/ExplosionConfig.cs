@@ -17,5 +17,7 @@ public class ExplosionConfig : CommonConfig
     {
         DrawTime = configJson.DrawTime * 1000;
         ExplosionFrames = configJson.ExplosionFrames;
+
+        TextureScale *= ExplosionFrames;
     }
 }

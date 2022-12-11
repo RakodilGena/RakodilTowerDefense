@@ -78,12 +78,13 @@ public abstract class TurretGun : Gun
     /// <returns></returns>
     protected Vector2 GetBarrelEnd()
     {
-        var barrelLength = Config.BarrelLength;
+        var cfg = Config;
+        var barrelLength = cfg.BarrelLength * cfg.TurretTextureScale;
         
         if (barrelLength <= 0)
             return Position;
 
-        var barrelEnd = Position.MovedInDirection(TurretRotation, barrelLength);
+        var barrelEnd = Position.MovedInDirection(barrelLength, TurretRotation);
         return barrelEnd;
     }
 
@@ -105,7 +106,7 @@ public abstract class TurretGun : Gun
     public float GetRotationToTarget(Enemy enemy)
     {
         //get vector between enemy and gun.
-        var vector = Position - enemy.Position;
+        var vector = enemy.Position - Position;
 
         //get angle based on vector.
         var expectedRotation = (float)Math.Atan2(vector.Y, vector.X);

@@ -22,6 +22,8 @@ public abstract class Explosion : GameObject, IRemovable
     protected new ExplosionConfig Config => (ExplosionConfig)base.Config;
 
     public event EventHandler? Removed;
+    
+    protected float Rotation { get; }
 
     #endregion
 
@@ -30,10 +32,12 @@ public abstract class Explosion : GameObject, IRemovable
 
     protected Explosion(
         Vector2 position,
+        float rotation,
         string configName)
         : base(position, configName)
     {
         _currentDrawTime = 0;
+        Rotation = rotation;
     }
     
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -54,7 +58,7 @@ public abstract class Explosion : GameObject, IRemovable
             position: GetGamePosition(),
             sourceRectangle: currentSourceRectangle,
             color: Color.White,
-            rotation: 0f,
+            rotation: Rotation,
             origin: new Vector2(currentSourceRectangle.Width / 2f, texture.Height / 2f),
             scale: new Vector2(cfg.TextureScale) * GlobalConfig.GameFieldScale,
             effects: SpriteEffects.None,

@@ -30,7 +30,6 @@ public abstract class BeamShot: ExplosionWithSpark
     {
         //this draws basic explosion and a spark  with base call,
         //it also draws beam
-        base.Draw(gameTime, spriteBatch);
         
         BeamShotConfig cfg = Config;
         Texture2D beamTexture = cfg.BeamTexture;
@@ -46,7 +45,7 @@ public abstract class BeamShot: ExplosionWithSpark
         var widthBeamScale = Position.DistanceTo(SparkPosition) / currentSourceRectangle.Width;
         
         //create scale vector considering texture and game field scales.
-        var beamScale = new Vector2(widthBeamScale, 1) * cfg.BeamTextureScale * GlobalConfig.GameFieldScale;
+        var beamScale = new Vector2(widthBeamScale, cfg.BeamTextureScale) * GlobalConfig.GameFieldScale;
         
         spriteBatch.Draw(
             texture: beamTexture,
@@ -58,6 +57,8 @@ public abstract class BeamShot: ExplosionWithSpark
             scale: beamScale,
             effects: SpriteEffects.None,
             layerDepth: DrawLayers.Explosion);
+        
+        base.Draw(gameTime, spriteBatch);
     }
 
     #endregion

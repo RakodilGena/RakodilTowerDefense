@@ -17,8 +17,6 @@ public abstract class ExplosionWithSpark: Explosion
 
     private new ExplosionWithSparkConfig Config => (ExplosionWithSparkConfig)base.Config;
     
-    protected float Rotation { get; }
-    
     protected Vector2 SparkPosition { get; }
 
     #endregion
@@ -31,9 +29,8 @@ public abstract class ExplosionWithSpark: Explosion
         string configName, 
         float rotation,
         Vector2 sparkPosition) 
-        : base(position, configName)
+        : base(position, rotation, configName)
     {
-        Rotation = rotation;
         SparkPosition = sparkPosition;
     }
     

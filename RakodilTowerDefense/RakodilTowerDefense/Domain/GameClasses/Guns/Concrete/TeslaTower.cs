@@ -69,7 +69,9 @@ public class TeslaTower: NonTurretGun, IExplosionCreator
 
     #region Methods
 
-    public TeslaTower(Vector2 position, string configName) : base(position, configName)
+    public TeslaTower(Vector2 position)
+        : base(position,
+            ConfigNames.Guns.Tesla)
     {
     }
 
@@ -136,7 +138,9 @@ public class TeslaTower: NonTurretGun, IExplosionCreator
     private List<Enemy> GetDamagedEnemies()
     {
         var cfg = Config;
-        
+        if (cfg.MaximumTargets < 2)
+            return new List<Enemy>(0);
+
         var traveledDistanceOfTarget = CurrentTarget!.TraveledDistance;
         
         //take maximum targets that can be hit by lightning jumps
@@ -144,7 +148,7 @@ public class TeslaTower: NonTurretGun, IExplosionCreator
             GetAliveEnemies()
                 .Where(e => e.TraveledDistance < traveledDistanceOfTarget)
                 .OrderBy(e => e.TraveledDistance)
-                .Take(cfg.MaximumTargets);
+                .Take(cfg.MaximumTargets - 1);
 
         var damagedEnemies = new List<Enemy>(cfg.MaximumTargets);
         

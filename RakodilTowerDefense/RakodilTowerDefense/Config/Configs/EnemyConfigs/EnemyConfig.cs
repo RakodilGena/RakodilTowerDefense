@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RakodilTowerDefense.Config.JsonConfigs.EnemyConfigs;
 
@@ -20,7 +21,7 @@ public class EnemyConfig: CommonConfig
     {
         HP = configJson.Hp;
         MovingSpeed = configJson.MovingSpeed / 1000;
-        RotationSpeed = configJson.RotationSpeed / 1000;
+        RotationSpeed = MathHelper.ToRadians(configJson.RotationSpeed / 1000);
         Bounty = configJson.Bounty;
         Rank = configJson.Rank;
     }

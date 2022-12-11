@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using RakodilTowerDefense.Config.Configs.Global;
-using RakodilTowerDefense.Config.Configs.ProjectileConfigs;
 using RakodilTowerDefense.Domain.GameClasses.Guns.Abstract;
 using RakodilTowerDefense.Domain.GameClasses.Interfaces;
 using RakodilTowerDefense.Domain.GameClasses.Projectiles.Abstract;
@@ -10,7 +9,7 @@ using RakodilTowerDefense.Domain.GameClasses.Projectiles.Concrete;
 
 namespace RakodilTowerDefense.Domain.GameClasses.Guns.Concrete;
 
-public class MissileTower: TurretGun, IProjectileCreator
+public class MissileTower: TurretLoadableGun, IProjectileCreator
 {
     #region Properties
     
