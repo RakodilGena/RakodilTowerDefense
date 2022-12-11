@@ -43,38 +43,39 @@ public class Game1 : Game
         var strategies = AimingStrategyPack.GetStrategies();
         ConfigFactory.Initialize(textures, strategies);
 
-        _enemies = new List<Enemy>{
-            new FastEnemy(new Vector2(100, 540), 0){TraveledDistance = 0},
-            
-            new StandardEnemy(new Vector2(400, 540), 0){TraveledDistance = 300},
-            
-            new DurableEnemy(new Vector2(700, 540), 0){TraveledDistance = 600},
-            
-            new BossEnemy(new Vector2(1000, 540), 0){TraveledDistance = 900},
-            };
-        
+        _enemies = new List<Enemy>
+        {
+            new FastEnemy(new Vector2(100, 540), 0) { TraveledDistance = 0 },
 
-        var cannon = new CannonTower(new Vector2(900, 100), MathHelper.ToRadians(90));
+            new StandardEnemy(new Vector2(400, 540), 0) { TraveledDistance = 300 },
+
+            new DurableEnemy(new Vector2(700, 540), 0) { TraveledDistance = 600 },
+
+            new BossEnemy(new Vector2(1000, 540), 0) { TraveledDistance = 900 },
+        };
+
+
+        var cannon = new CannonTower(new Vector2(100, 100), MathHelper.ToRadians(90));
         var gatling = new GatlingTower(new Vector2(900, 100), MathHelper.ToRadians(-90));
-        var laser = new LaserGun(new Vector2(900, 100), MathHelper.ToRadians(0));
-        var tesla = new TeslaTower(new Vector2(900, 900));
-        var missile = new MissileTower(new Vector2(900, 900), MathHelper.ToRadians(90));
+        var laser = new LaserGun(new Vector2(1700, 100), MathHelper.ToRadians(0));
+        var tesla = new TeslaTower(new Vector2(400, 900));
+        var missile = new MissileTower(new Vector2(1300, 900), MathHelper.ToRadians(90));
         _guns = new List<Gun>
         {
-            //cannon, 
-            // gatling, 
-             laser, 
-            // tesla, 
-            // missile
+            cannon,
+            gatling,
+            laser,
+            tesla,
+            missile
         };
 
         foreach (var g in _guns)
         {
             g.AskedForEnemies += OnAskedForEnemies;
-            
+
             if (g is IExplosionCreator exc)
                 exc.ExplosionCreated += OnExplosionAdded;
-            
+
             if (g is IProjectileCreator prc)
                 prc.ProjectileCreated += OnProjectileAdded;
         }
@@ -82,7 +83,7 @@ public class Game1 : Game
         _projectiles = new List<Projectile>();
         _projectilesToAdd = new List<Projectile>();
         _projectilesToRemove = new List<Projectile>();
-        
+
         _explosions = new List<Explosion>();
         _explosionsToAdd = new List<Explosion>();
         _explosionsToRemove = new List<Explosion>();
@@ -179,9 +180,13 @@ public class Game1 : Game
         
         _projectiles.AddRange(_projectilesToAdd);
         _projectiles.RemoveAll(c => _projectilesToRemove.Contains(c));
+        _projectilesToAdd.Clear();
+        _projectilesToRemove.Clear();
         
         _explosions.AddRange(_explosionsToAdd);
         _explosions.RemoveAll(c => _explosionsToRemove.Contains(c));
+        _explosionsToAdd.Clear();
+        _explosionsToRemove.Clear();
 
         base.Update(gameTime);
     }

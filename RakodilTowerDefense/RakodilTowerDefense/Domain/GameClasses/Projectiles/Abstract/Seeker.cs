@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using RakodilTowerDefense.Config.Configs.Global;
 using RakodilTowerDefense.Config.Configs.ProjectileConfigs;
 using RakodilTowerDefense.Domain.GameClasses.Enemies;
 using RakodilTowerDefense.Extensions;
@@ -65,7 +66,7 @@ public abstract class Seeker: Projectile
         var distanceAddition = config.Speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
         //if this seeker could reach enemy at this step
-        if (distance.Length() - distanceAddition <= config.CollisionRange)
+        if (distance.Length() - distanceAddition <= config.CollisionRange * config.TextureScale)
         {
             //telling that enemy is reached
             TargetReached.Invoke(this, EventArgs.Empty);
@@ -79,10 +80,7 @@ public abstract class Seeker: Projectile
         //if cant reach enemy yet -> change rotation and position.
         Rotation = (float)Math.Atan2(distance.Y, distance.X);
 
-        Position = Position.MovedInDirection(Rotation, distanceAddition);
-            // new Vector2(
-            // x: (float)Math.Cos(Rotation) * distanceAddition,
-            // y: (float)Math.Sin(Rotation) * distanceAddition);
+        Position = Position.MovedInDirection(distanceAddition, Rotation);
     }
 
     #endregion

@@ -58,16 +58,16 @@
 
     "Missile": {
       "Texture": "Textures/Guns/turret_missile_200",
-      "TextureWidth": 180,
+      "TextureWidth": 150,
 
       "Damage": 0,
-      "ReloadTime": 10,
+      "ReloadTime": 2,
       "Range": 500,
       "Cost": 0,
       "AimingStrategy": "First",
 
       "TurretTexture": "Textures/Guns/gun_missile_700(1400)x400_385",
-      "TurretTextureWidth": 350,
+      "TurretTextureWidth": 220,
       "RotationSpeed": 90,
       "RotationCenterX": 385,
       "BarrelLength": 0
@@ -85,8 +85,8 @@
 
       "IdleSparkTexture": "Textures/Guns/tesla_idle_lightning_740",
       "IdleSparkTextureWidth": 180,
-      "IdleSparkDrawTime": 0.2,
-      "IdleSparkReloadTime": 0.3,
+      "IdleSparkDrawTime": 0.4,
+      "IdleSparkReloadTime": 2,
       "LightningJumpRange": 1000,
       "MaximumTargets": 5
     }
@@ -94,13 +94,13 @@
   "Projectiles": {
     "Missile": {
       "Texture": "Textures/Projectiles/missile_flying_1000x400_720",
-      "TextureWidth": 250,
+      "TextureWidth": 157.143,
 
       "RotationCenterX": 720,
-      "Speed": 100,
+      "Speed": 600,
       "Damage": 0,
 
-      "CollisionRange": 260,
+      "CollisionRange": 150,
 
       "ExplosionRange": 100
     }
@@ -108,31 +108,31 @@
   "Explosions": {
     "Gatling": {
       "Texture": "Textures/Explosions/explo_machine_90x90",
-      "TextureWidth": 30,
-      "DrawTime": 2,
+      "TextureWidth": 20,
+      "DrawTime": 0.18,
       "ExplosionFrames": 1,
 
       "SparkTexture": "Textures/Explosions/shot_bullet_500x300x4",
-      "SparkTextureWidth": 50,
+      "SparkTextureWidth": 60,
       "SparkRotationCenterX": 0,
       "SparkFrames": 4
     },
 
     "Cannon": {
       "Texture": "Textures/Explosions/explo_cannon_500x500",
-      "TextureWidth": 60,
-      "DrawTime": 2.5,
+      "TextureWidth": 55,
+      "DrawTime": 0.25,
       "ExplosionFrames": 1,
 
       "SparkTexture": "Textures/Explosions/shot_cannon_500x550x4",
-      "SparkTextureWidth": 60,
+      "SparkTextureWidth": 75,
       "SparkRotationCenterX": 0,
       "SparkFrames": 4
     },
     "Laser": {
       "Texture": "Textures/Explosions/explo_laser_50x50",
       "TextureWidth": 25,
-      "DrawTime": 3,
+      "DrawTime": 0.2,
       "ExplosionFrames": 1,
 
       "SparkTexture": "Textures/Explosions/shot_laser_80x50",
@@ -146,31 +146,31 @@
     },
     "TeslaLightning": {
       "Texture": "Textures/Explosions/explo_lightning_32x32",
-      "TextureWidth": 32,
-      "DrawTime": 1.5,
+      "TextureWidth": 24,
+      "DrawTime": 0.7,
       "ExplosionFrames": 1,
 
       "SparkTexture": "Textures/Explosions/explo_lightning_32x32",
-      "SparkTextureWidth": 32,
+      "SparkTextureWidth": 24,
       "SparkRotationCenterX": 16,
       "SparkFrames": 1,
 
       "BeamTexture": "Textures/Explosions/beam_lightning_200x100x4",
-      "BeamTextureWidth": 200,
+      "BeamTextureWidth": 170,
       "BeamFrames": 4,
 
-      "LightningFrames": 15
+      "LightningFrames": 30
     },
     "Missile": {
       "Texture": "Textures/Explosions/explo_missile_350x350_7",
-      "TextureWidth": 100,
-      "DrawTime": 1.2,
+      "TextureWidth": 200,
+      "DrawTime": 0.6,
       "ExplosionFrames": 7
     },
     "Enemy":{
       "Texture": "Textures/Explosions/explo_enemy_350x350_6",
       "TextureWidth": 180,
-      "DrawTime": 2,
+      "DrawTime": 1,
       "ExplosionFrames": 6
     }
   },

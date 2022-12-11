@@ -236,13 +236,13 @@ public class TeslaLightning : Explosion
         /// <param name="spriteBatch"></param>
         private void DrawLightning(SpriteBatch spriteBatch)
         {
-            Vector2 beamVector = _source.Position - _receiver.Position;
+            Vector2 beamVector = _receiver.Position - _source.Position;
 
             //calculating beam width scale
             var widthBeamScale = beamVector.Length() / _beamRectangle.Width;
 
             //create scale vector considering texture and game field scales.
-            var beamScale = new Vector2(widthBeamScale, 1) * _config.BeamTextureScale * GlobalConfig.GameFieldScale;
+            var beamScale = new Vector2(widthBeamScale, _config.BeamTextureScale) * GlobalConfig.GameFieldScale;
 
             //also calculate beam rotation
             var beamRotation = (float)Math.Atan2(beamVector.Y, beamVector.X);

@@ -104,12 +104,12 @@ public abstract class Explosion : GameObject, IRemovable
     public override void Update(GameTime gameTime)
     {
         //calculating draw time at this step.
-        var newDrawTime = _currentDrawTime + (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+        var drawTime = _currentDrawTime + (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
         //if threshold of drawing explosion not reached - keep ticking and drawing.
-        if (newDrawTime < Config.DrawTime)
+        if (drawTime < Config.DrawTime)
         {
-            _currentDrawTime = newDrawTime;
+            _currentDrawTime = drawTime;
             return;
         }
 
