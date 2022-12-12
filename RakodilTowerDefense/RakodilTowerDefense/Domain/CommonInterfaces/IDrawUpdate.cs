@@ -3,16 +3,19 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace RakodilTowerDefense.Domain.CommonInterfaces;
 
+/// <summary>
+/// Implementors of this can be either drawn or updated.
+/// </summary>
 public interface IDrawUpdate
 {
     /// <summary>
-    /// Updates game object.
+    /// Updates implementor of this.
     /// </summary>
     /// <param name="gameTime"></param>
     public void Update(GameTime gameTime);
     
     /// <summary>
-    /// Draws game object.
+    /// Draws implementor of this.
     /// </summary>
     /// <param name="gameTime"></param>
     /// <param name="spriteBatch"></param>

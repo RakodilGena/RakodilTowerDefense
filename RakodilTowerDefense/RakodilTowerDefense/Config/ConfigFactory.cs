@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using RakodilTowerDefense.Config.Configs;
+using RakodilTowerDefense.Config.Configs.ButtonConfigs;
 using RakodilTowerDefense.Config.Configs.EnemyConfigs;
 using RakodilTowerDefense.Config.Configs.ExplosionsConfig;
 using RakodilTowerDefense.Config.Configs.Global;
@@ -92,7 +93,7 @@ public class ConfigFactory
     /// <param name="aimingStrategies"></param>
     /// <returns></returns>
     private static IDictionary<string, CommonConfig> GetConfigs(
-        AllConfigsKeeperJson keeper, 
+        AllConfigsKeeperJson keeper,
         IDictionary<string, Texture2D> textures,
         IDictionary<string, AimingStrategy> aimingStrategies)
     {
@@ -101,7 +102,10 @@ public class ConfigFactory
         AddExplosionConfigs(dictionary, keeper, textures);
         AddProjectileConfigs(dictionary, keeper, textures);
         AddGunConfigs(dictionary, keeper, aimingStrategies, textures);
-
+        AddButtonConfigs(dictionary, keeper, textures);
+        AddGunPanelIconConfigs(dictionary, keeper, textures);
+        AddBackgroundConfigs(dictionary, keeper, textures);
+        
         return dictionary;
     }
 
@@ -161,6 +165,42 @@ public class ConfigFactory
         dictionary.Add(ConfigNames.Guns.Tesla, new TeslaConfig(keeper.Guns.Tesla, textures, aimingStrategies));
         
         dictionary.Add(ConfigNames.Guns.Missile, new GunTurretConfig(keeper.Guns.Missile, textures, aimingStrategies));
+    }
+
+
+    private static void AddButtonConfigs(
+        IDictionary<string, CommonConfig> dictionary,
+        AllConfigsKeeperJson keeper,
+        IDictionary<string, Texture2D> textures)
+    {
+        dictionary.Add(ConfigNames.Buttons.CommonWhite, new CommonConfig(keeper.Buttons.CommonWhite, textures));
+        dictionary.Add(ConfigNames.Buttons.CommonBlack, new CommonConfig(keeper.Buttons.CommonBlack, textures));
+        dictionary.Add(ConfigNames.Buttons.Cancel, new CommonConfig(keeper.Buttons.Cancel, textures));
+        dictionary.Add(ConfigNames.Buttons.Exit, new CommonConfig(keeper.Buttons.Exit, textures));
+        dictionary.Add(ConfigNames.Buttons.Pause, new PauseButtonConfig(keeper.Buttons.Pause, textures));
+    }
+
+
+    private static void AddGunPanelIconConfigs(
+        IDictionary<string, CommonConfig> dictionary,
+        AllConfigsKeeperJson keeper,
+        IDictionary<string, Texture2D> textures)
+    {
+        dictionary.Add(ConfigNames.GunPanelIcons.Gatling, new CommonConfig(keeper.GunPanelIcons.Gatling, textures));
+        dictionary.Add(ConfigNames.GunPanelIcons.Cannon, new CommonConfig(keeper.GunPanelIcons.Cannon, textures));
+        dictionary.Add(ConfigNames.GunPanelIcons.Laser, new CommonConfig(keeper.GunPanelIcons.Laser, textures));
+        dictionary.Add(ConfigNames.GunPanelIcons.Tesla, new CommonConfig(keeper.GunPanelIcons.Tesla, textures));
+        dictionary.Add(ConfigNames.GunPanelIcons.Missile, new CommonConfig(keeper.GunPanelIcons.Missile, textures));
+    }
+
+
+    private static void AddBackgroundConfigs(
+        IDictionary<string, CommonConfig> dictionary,
+        AllConfigsKeeperJson keeper,
+        IDictionary<string, Texture2D> textures)
+    {
+        dictionary.Add(ConfigNames.Backgrounds.GunPanel, new CommonConfig(keeper.Backgrounds.GunPanel, textures));
+        dictionary.Add(ConfigNames.Backgrounds.PopupWindow, new CommonConfig(keeper.Backgrounds.PopupWindow, textures));
     }
 
     #endregion

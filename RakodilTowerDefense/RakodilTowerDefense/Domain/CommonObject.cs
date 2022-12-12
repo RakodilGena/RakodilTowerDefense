@@ -31,8 +31,14 @@ public abstract class CommonObject: IDrawUpdate
     protected CommonObject(Vector2 position, string configName)
     {
         Position = position;
-        Config = ConfigFactory.GetConfig(configName);
+        Config = GetConfig(configName);
     }
+
+    protected static CommonConfig GetConfig(string configName)
+    {
+        return ConfigFactory.GetConfig(configName);
+    }
+    
 
     public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
 

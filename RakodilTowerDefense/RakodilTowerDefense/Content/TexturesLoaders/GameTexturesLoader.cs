@@ -14,6 +14,10 @@ public static class GameTexturesLoader
         dictionary.LoadProjectileTextures(contentManager);
         dictionary.LoadExplosionTextures(contentManager);
         
+        dictionary.LoadButtonTextures(contentManager);
+        dictionary.LoadGunPanelIconTextures(contentManager);
+        dictionary.LoadBackgroundTextures(contentManager);
+        
         //todo load other textures.
 
         return dictionary;
@@ -68,6 +72,40 @@ public static class GameTexturesLoader
         dictionary.AddTexture(contentManager, path + "shot_bullet_500x300x4");
         dictionary.AddTexture(contentManager, path + "shot_cannon_500x550x4");
         dictionary.AddTexture(contentManager, path + "shot_laser_80x50");
+    }
+
+    private static void LoadButtonTextures(
+        this IDictionary<string, Texture2D> dictionary,
+        ContentManager contentManager)
+    {
+        const string path = @"Textures/Buttons/";
+        dictionary.AddTexture(contentManager, path + "button_black_600x200");
+        dictionary.AddTexture(contentManager, path + "button_white_600x200");
+        dictionary.AddTexture(contentManager, path + "button_cancel_200");
+        dictionary.AddTexture(contentManager, path + "button_exit_200");
+        dictionary.AddTexture(contentManager, path + "button_pause_200");
+        dictionary.AddTexture(contentManager, path + "button_play_200");
+    }
+
+    private static void LoadGunPanelIconTextures(
+        this IDictionary<string, Texture2D> dictionary,
+        ContentManager contentManager)
+    {
+        const string path = @"Textures/Buttons/";
+        dictionary.AddTexture(contentManager, path + "icon_cannon_170");
+        dictionary.AddTexture(contentManager, path + "icon_laser_170");
+        dictionary.AddTexture(contentManager, path + "icon_machine_170");
+        dictionary.AddTexture(contentManager, path + "icon_missile_170");
+        dictionary.AddTexture(contentManager, path + "icon_tesla_170");
+    }
+
+    private static void LoadBackgroundTextures(
+        this IDictionary<string, Texture2D> dictionary,
+        ContentManager contentManager)
+    {
+        const string path = @"Textures/Backgrounds/";
+        dictionary.AddTexture(contentManager, path + "bg_gunpanel_200x1080");
+        dictionary.AddTexture(contentManager, path + "bg_popup_600x400");
     }
 
 

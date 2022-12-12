@@ -1,88 +1,71 @@
-﻿
-
-{
+﻿{
   "Guns": {
     "Gatling": {
       "Texture": "Textures/Guns/turret_machine_200",
       "TextureWidth": 180,
-
       "Damage": 0,
       "ReloadTime": 2,
       "Range": 1000,
       "Cost": 0,
       "AimingStrategy": "Fastest",
-
       "TurretTexture": "Textures/Guns/gun_machine_830x350_330_480",
       "TurretTextureWidth": 180,
       "RotationSpeed": 180,
       "RotationCenterX": 300,
       "BarrelLength": 510,
-
       "AmmoCapacity": 10,
       "SingleBulletReloadTime": 0.2
     },
-
     "Cannon": {
       "Texture": "Textures/Guns/turret_cannon_200",
       "TextureWidth": 180,
-
       "Damage": 0,
       "ReloadTime": 4,
       "Range": 600,
       "Cost": 0,
       "AimingStrategy": "Closest",
-
       "TurretTexture": "Textures/Guns/gun_cannon_720x330_270_435",
       "TurretTextureWidth": 220,
       "RotationSpeed": 40,
       "RotationCenterX": 220,
       "BarrelLength": 495
     },
-
     "Laser": {
       "Texture": "Textures/Guns/turret_laser_200",
       "TextureWidth": 180,
-
       "Damage": 0,
       "ReloadTime": 3,
       "Range": 800,
       "Cost": 0,
       "AimingStrategy": "Rank",
-
       "TurretTexture": "Textures/Guns/gun_laser_850(1700)x540_300_455",
       "TurretTextureWidth": 360,
       "RotationSpeed": 80,
       "RotationCenterX": 300,
       "BarrelLength": 455
     },
-
     "Missile": {
       "Texture": "Textures/Guns/turret_missile_200",
       "TextureWidth": 150,
-
       "Damage": 0,
       "ReloadTime": 2,
       "Range": 500,
       "Cost": 0,
       "AimingStrategy": "First",
-
       "TurretTexture": "Textures/Guns/gun_missile_700(1400)x400_385",
       "TurretTextureWidth": 220,
       "RotationSpeed": 90,
       "RotationCenterX": 385,
       "BarrelLength": 0
     },
-
     "Tesla": {
       "Texture": "Textures/Guns/gun_tesla_740",
       "TextureWidth": 180,
-
       "Damage": 0,
       "ReloadTime": 6,
       "Range": 500,
       "Cost": 0,
       "AimingStrategy": "First",
-
       "IdleSparkTexture": "Textures/Guns/tesla_idle_lightning_740",
       "IdleSparkTextureWidth": 180,
       "IdleSparkDrawTime": 0.4,
@@ -95,35 +78,29 @@
     "Missile": {
       "Texture": "Textures/Projectiles/missile_flying_1000x400_720",
       "TextureWidth": 157.143,
-
       "RotationCenterX": 720,
       "Speed": 600,
       "Damage": 0,
-
       "CollisionRange": 150,
-
-      "ExplosionRange": 100
+      "ExplosionRange": 175
     }
   },
   "Explosions": {
     "Gatling": {
       "Texture": "Textures/Explosions/explo_machine_90x90",
       "TextureWidth": 20,
-      "DrawTime": 0.18,
+      "DrawTime": 0.1,
       "ExplosionFrames": 1,
-
       "SparkTexture": "Textures/Explosions/shot_bullet_500x300x4",
       "SparkTextureWidth": 60,
       "SparkRotationCenterX": 0,
       "SparkFrames": 4
     },
-
     "Cannon": {
       "Texture": "Textures/Explosions/explo_cannon_500x500",
       "TextureWidth": 55,
-      "DrawTime": 0.25,
+      "DrawTime": 0.2,
       "ExplosionFrames": 1,
-
       "SparkTexture": "Textures/Explosions/shot_cannon_500x550x4",
       "SparkTextureWidth": 75,
       "SparkRotationCenterX": 0,
@@ -134,12 +111,10 @@
       "TextureWidth": 25,
       "DrawTime": 0.2,
       "ExplosionFrames": 1,
-
       "SparkTexture": "Textures/Explosions/shot_laser_80x50",
       "SparkTextureWidth": 40,
       "SparkRotationCenterX": 0,
       "SparkFrames": 1,
-
       "BeamTexture": "Textures/Explosions/beam_laser_100x20",
       "BeamTextureWidth": 50,
       "BeamFrames": 1
@@ -147,35 +122,31 @@
     "TeslaLightning": {
       "Texture": "Textures/Explosions/explo_lightning_32x32",
       "TextureWidth": 24,
-      "DrawTime": 0.7,
+      "DrawTime": 0.6,
       "ExplosionFrames": 1,
-
       "SparkTexture": "Textures/Explosions/explo_lightning_32x32",
       "SparkTextureWidth": 24,
       "SparkRotationCenterX": 16,
       "SparkFrames": 1,
-
       "BeamTexture": "Textures/Explosions/beam_lightning_200x100x4",
       "BeamTextureWidth": 170,
       "BeamFrames": 4,
-
-      "LightningFrames": 30
+      "LightningFrames": 40
     },
     "Missile": {
       "Texture": "Textures/Explosions/explo_missile_350x350_7",
-      "TextureWidth": 200,
+      "TextureWidth": 350,
       "DrawTime": 0.6,
       "ExplosionFrames": 7
     },
-    "Enemy":{
+    "Enemy": {
       "Texture": "Textures/Explosions/explo_enemy_350x350_6",
       "TextureWidth": 180,
       "DrawTime": 1,
       "ExplosionFrames": 6
     }
   },
-  "Enemies" :
-  {
+  "Enemies": {
     "Standard": {
       "Texture": "Textures/Enemies/enemy_standard_720",
       "TextureWidth": 160,
@@ -212,6 +183,61 @@
       "Bounty": 0,
       "Rank": 5
     }
+  },
+  "Buttons": {
+    "CommonWhite": {
+      "Texture": "Textures/Buttons/button_white_600x200",
+      "TextureWidth": 600
+    },
+    "CommonBlack": {
+      "Texture": "Textures/Buttons/button_black_600x200",
+      "TextureWidth": 600
+    },
+    "Cancel": {
+      "Texture": "Textures/Buttons/button_cancel_200",
+      "TextureWidth": 200
+    },
+    "Exit": {
+      "Texture": "Textures/Buttons/button_exit_200",
+      "TextureWidth": 200
+    },
+    "Pause": {
+      "Texture": "Textures/Buttons/button_pause_200",
+      "TextureWidth": 200,
+      "PlayTexture": "Textures/Buttons/button_play_200",
+      "PlayTextureWidth": 200
+    }
+  },
+  "GunPanelIcons": {
+    "Gatling": {
+      "Texture": "Textures/Buttons/icon_machine_170",
+      "TextureWidth": 170
+    },
+    "Cannon": {
+      "Texture": "Textures/Buttons/icon_cannon_170",
+      "TextureWidth": 170
+    },
+    "Laser": {
+      "Texture": "Textures/Buttons/icon_laser_170",
+      "TextureWidth": 170
+    },
+    "Tesla": {
+      "Texture": "Textures/Buttons/icon_tesla_170",
+      "TextureWidth": 170
+    },
+    "Missile": {
+      "Texture": "Textures/Buttons/icon_missile_170",
+      "TextureWidth": 170
+    }
+  },
+  "Backgrounds": {
+    "GunPanel": {
+      "Texture": "Textures/Backgrounds/bg_gunpanel_200x1080",
+      "TextureWidth": 200
+    },
+    "PopupWindow": {
+      "Texture": "Textures/Backgrounds/bg_popup_600x400",
+      "TextureWidth": 600
+    }
   }
-  
 }

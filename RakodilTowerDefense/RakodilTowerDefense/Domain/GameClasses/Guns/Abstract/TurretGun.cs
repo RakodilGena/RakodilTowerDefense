@@ -40,7 +40,7 @@ public abstract class TurretGun : Gun
         }
     }
 
-    private new GunTurretConfig Config => (GunTurretConfig)base.Config;
+    protected new GunTurretConfig Config => (GunTurretConfig)base.Config;
 
     #endregion
 

@@ -45,6 +45,38 @@ public static class ConfigNames
             Boss = PREFIX + "Boss";
     }
 
+    public static class Buttons
+    {
+        private const string PREFIX = "Button";
 
+        public const string 
+            CommonWhite = PREFIX + "CommonWhite",
+            CommonBlack = PREFIX + "CommonBlack",
+            Cancel = PREFIX + "Cancel",
+            Exit = PREFIX + "Exit",
+            Pause = PREFIX + "Pause";
+    }
+    
+    public static class GunPanelIcons
+    {
+        private const string PREFIX = "GunPanelIcon";
+
+        public const string 
+            Gatling = PREFIX + "Gatling",
+            Cannon = PREFIX + "Cannon",
+            Laser = PREFIX + "Laser",
+            Tesla = PREFIX + "Tesla",
+            Missile = PREFIX + "Missile";
+    }
+    
+    public static class Backgrounds
+    {
+        private const string PREFIX = "Background";
+
+        public const string 
+            GunPanel = PREFIX + "GunPanel",
+            PopupWindow = PREFIX + "PopupWindow";
+    }
+    
 
 }
